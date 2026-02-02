@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  card-optimizer:
+    build: .
+    container_name: card-optimizer
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=sqlite:///data/cards.db
